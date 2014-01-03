@@ -1,6 +1,6 @@
 import requests
 
-class DiffbotClient:
+class DiffbotClient(object):
     def __init__(self):
         pass
 
