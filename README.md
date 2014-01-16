@@ -27,3 +27,10 @@ version = 2
 
 response = diffbot.request(url, token, api, version=2)
 ```
+
+Testing
+------------
+
+Unit and integration tests are configured to run using nose.  From the project directory, simply run:
+
+    $ nosetests
