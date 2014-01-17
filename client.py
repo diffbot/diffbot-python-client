@@ -11,6 +11,7 @@ class DiffbotClient(object):
         """
         params = {"url": url, "token": token}
         response = requests.get(self.compose_url(api, version), params=params)
+        print response.content
         obj = response.json()
         obj = self.select_fields_from_response(obj, fields)
         return obj

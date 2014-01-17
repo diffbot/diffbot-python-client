@@ -35,14 +35,50 @@ class DiffbotClientUnitTest(unittest.TestCase):
     def tearDown(self):
         self.patcher.stop()
 
-    def test_request_for_article(self):
-        url = "http://shichuan.github.io/javascript-patterns/"
+    def test_article_api(self):
+        url = "http://www.xconomy.com/san-francisco/2012/07/25/diffbot-is-using-computer-vision-to-reinvent-the-semantic-web/"
         token = "3c66f28f72ea40c1b02e6a4cc195b07e"
         api = "article"
         version = 2
         response = self.client.request(url, token, api, version=version)
-        self.assertIn('text', response)
-        self.assertEqual(response['meta']['title'], 'JavaScript Patterns')
+        self.assertIn('title', response)
+        self.assertEqual(response['title'], "Diffbot Is Using Computer Vision to Reinvent the Semantic Web")
+
+    def test_frontpage_api(self):
+        url = "http://www.huffingtonpost.com/"
+        token = "3c66f28f72ea40c1b02e6a4cc195b07e"
+        api = "frontpage"
+        version = 2
+        response = self.client.request(url, token, api, version=version)
+        self.assertEqual(response['tagName'], "dml")
+        self.assertIn('childNodes', response)
+
+    def test_product_api(self):
+        url = "http://www.overstock.com/Home-Garden/iRobot-650-Roomba-Vacuuming-Robot/7886009/product.html"
+        token = "3c66f28f72ea40c1b02e6a4cc195b07e"
+        api = "product"
+        version = 2
+        response = self.client.request(url, token, api, version=version)
+        self.assertEqual(response['type'], "product")
+        self.assertEqual(response['products'][0]['title'], "iRobot 650 Roomba Vacuuming Robot")
+
+    def test_image_api(self):
+        url = "http://www.google.com/"
+        token = "3c66f28f72ea40c1b02e6a4cc195b07e"
+        api = "image"
+        version = 2
+        response = self.client.request(url, token, api, version=version)
+        self.assertEqual(response['title'], "Google")
+        self.assertEqual(response['images'][0]['url'], "https://www.google.com/images/srpr/logo9w.png")
+
+    def test_analyze_api(self):
+        url = "http://www.twitter.com/"
+        token = "3c66f28f72ea40c1b02e6a4cc195b07e"
+        api = "analyze"
+        version = 2
+        response = self.client.request(url, token, api, version=version)
+        self.assertEqual(response['type'], "image")
+        self.assertEqual(response['title'], "Welcome to Twitter.")
 
 
 if __name__ == '__main__':
