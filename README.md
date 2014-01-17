@@ -1,4 +1,4 @@
-Diffbot Python API Client
+Python Diffbot API Client
 =========
 
 Currently supports calls to the article endpoint.
@@ -6,7 +6,7 @@ Currently supports calls to the article endpoint.
 
 Installation
 -----------
-To install simply (preferably in a virtualenv):
+To install activate a new virtual environment and run the following command:
 
     $ pip install -r requirements.txt
 
@@ -30,6 +30,10 @@ response = diffbot.request(url, token, api, version=2)
 
 Testing
 ------------
+
+First install the test requirements with the following command:
+
+    $ pip install -r test_requirements.txt
 
 Unit and integration tests are configured to run using nose.  From the project directory, simply run:
 
