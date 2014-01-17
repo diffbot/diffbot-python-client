@@ -35,6 +35,6 @@ First install the test requirements with the following command:
 
     $ pip install -r test_requirements.txt
 
-Unit and integration tests are configured to run using nose.  From the project directory, simply run:
+Unit and functional tests are configured to run using nose.  From the project directory, simply run:
 
     $ nosetests

@@ -37,7 +37,7 @@ class DiffbotClientUnitTest(unittest.TestCase):
 
     def test_article_api(self):
         url = "http://www.xconomy.com/san-francisco/2012/07/25/diffbot-is-using-computer-vision-to-reinvent-the-semantic-web/"
-        token = "3c66f28f72ea40c1b02e6a4cc195b07e"
+        token = "SOME_TOKEN"
         api = "article"
         version = 2
         response = self.client.request(url, token, api, version=version)
@@ -46,7 +46,7 @@ class DiffbotClientUnitTest(unittest.TestCase):
 
     def test_frontpage_api(self):
         url = "http://www.huffingtonpost.com/"
-        token = "3c66f28f72ea40c1b02e6a4cc195b07e"
+        token = "SOME_TOKEN"
         api = "frontpage"
         version = 2
         response = self.client.request(url, token, api, version=version)
@@ -55,7 +55,7 @@ class DiffbotClientUnitTest(unittest.TestCase):
 
     def test_product_api(self):
         url = "http://www.overstock.com/Home-Garden/iRobot-650-Roomba-Vacuuming-Robot/7886009/product.html"
-        token = "3c66f28f72ea40c1b02e6a4cc195b07e"
+        token = "SOME_TOKEN"
         api = "product"
         version = 2
         response = self.client.request(url, token, api, version=version)
@@ -64,7 +64,7 @@ class DiffbotClientUnitTest(unittest.TestCase):
 
     def test_image_api(self):
         url = "http://www.google.com/"
-        token = "3c66f28f72ea40c1b02e6a4cc195b07e"
+        token = "SOME_TOKEN"
         api = "image"
         version = 2
         response = self.client.request(url, token, api, version=version)
@@ -73,7 +73,7 @@ class DiffbotClientUnitTest(unittest.TestCase):
 
     def test_analyze_api(self):
         url = "http://www.twitter.com/"
-        token = "3c66f28f72ea40c1b02e6a4cc195b07e"
+        token = "SOME_TOKEN"
         api = "analyze"
         version = 2
         response = self.client.request(url, token, api, version=version)

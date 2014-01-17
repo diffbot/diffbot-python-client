@@ -1,9 +1,10 @@
 from client import DiffbotClient
+from config import API_TOKEN
 import pprint
 
 diffbot = DiffbotClient()
 url = "http://shichuan.github.io/javascript-patterns/"
-token = "3c66f28f72ea40c1b02e6a4cc195b07e"
+token = API_TOKEN
 api = "article"
 version = 2
 
