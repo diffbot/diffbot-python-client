@@ -10,7 +10,11 @@ To install activate a new virtual environment and run the following command:
 
     $ pip install -r requirements.txt
 
-To run the example:
+To run the example, you must first configure a working API token in config.py:
+
+    $ cp config.py.example config.py; vim config.py;
+
+Then replace the string "SOME_TOKEN" with your API token.  Finally, to run the example:
 
     $ python example.py
 
@@ -21,7 +25,7 @@ An example of how to use the client in your code:
 ```
 diffbot = DiffbotClient()
 url = "http://shichuan.github.io/javascript-patterns/"
-token = "3c66f28f72ea40c1b02e6a4cc195b07e"
+token = "YOUR_TOKEN_HERE"
 api = "article"
 version = 2
 
