@@ -10,19 +10,10 @@ class DiffbotClient(object):
         Returns a python object containing the requested resource from the diffbot api
         """
         params = {"url": url, "token": token}
+        if fields:
+            params['fields'] = fields
         response = requests.get(self.compose_url(api, version), params=params)
         obj = response.json()
-        obj = self.select_fields_from_response(obj, fields)
-        return obj
-
-    @staticmethod
-    def select_fields_from_response(obj, fields):
-        """
-        Returns the response object with the specified fields or all fields if
-        the fields list is empty
-        """
-        if fields:
-            obj = dict((x, obj[x]) for x in fields)
         return obj
 
     def compose_url(self, api, version_number):
