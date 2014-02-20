@@ -2,8 +2,8 @@ import requests
 
 
 class DiffbotClient(object):
-    def __init__(self):
-        self.base_url = "http://api.diffbot.com/"
+
+    base_url = 'http://api.diffbot.com/'
 
     def request(self, url, token, api, fields=None, version=2, **kwargs):
         """
