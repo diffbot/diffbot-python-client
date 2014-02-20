@@ -12,8 +12,7 @@ class DiffbotClient(object):
         params = {"url": url, "token": token}
         if fields:
             params['fields'] = fields
-        if kwargs:
-            params.update(kwargs)
+        params.update(kwargs)
         response = requests.get(self.compose_url(api, version), params=params)
         response.raise_for_status()
         return response.json()
