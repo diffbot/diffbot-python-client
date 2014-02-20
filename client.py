@@ -15,8 +15,7 @@ class DiffbotClient(object):
         if kwargs:
             params.update(kwargs)
         response = requests.get(self.compose_url(api, version), params=params)
-        obj = response.json()
-        return obj
+        return response.json()
 
     def compose_url(self, api, version_number):
         """
