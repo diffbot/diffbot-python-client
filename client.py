@@ -5,7 +5,7 @@ class DiffbotClient(object):
     def __init__(self):
         self.base_url = "http://api.diffbot.com/"
 
-    def request(self, url, token, api, fields=[], version=2, **kwargs):
+    def request(self, url, token, api, fields=None, version=2, **kwargs):
         """
         Returns a python object containing the requested resource from the diffbot api
         """
