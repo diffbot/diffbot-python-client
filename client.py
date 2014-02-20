@@ -29,4 +29,4 @@ class DiffbotClient(object):
         """
         Returns a string representation of the API version
         """
-        return '{}v'.format(version_number)
+        return 'v{}'.format(version_number)
