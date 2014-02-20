@@ -1,14 +1,10 @@
 import os
 import urlparse
 import unittest
-import logging
 import requests
 from mock import patch
 
 from client import DiffbotClient
-
-
-logger = logging.getLogger(__name__)
 
 
 def fake_get(url, params):
