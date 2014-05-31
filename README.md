@@ -99,7 +99,7 @@ To pass additional arguments to a crawl:
 ```
 sampleCrawl = DiffbotCrawl(token,name,seeds,apiUrl,maxToCrawl=100,maxToProcess=50,notifyEmail="support@diffbot.com")
 ```
-g
+
 ##Testing
 
 First install the test requirements with the following command:
