@@ -2,7 +2,7 @@
 
 
 ##Preface
-Identify and extract the important parts of any web page in Python!  This client currently supports calls to the automatic APIs.
+Identify and extract the important parts of any web page in Python!  This client currently supports calls to Diffbot's Automatic APIs and Crawlbot.
 
 
 Installation
@@ -34,18 +34,6 @@ api = "article"
 response = diffbot.request(url, token, api, version=2)
 ```
 
-###Frontpage API
-An example call to the Frontpage API:
-
-```
-diffbot = DiffbotClient()
-token = "SOME_TOKEN"
-version = 2
-url = "http://www.huffingtonpost.com/"
-api = "frontpage"
-response = diffbot.request(url, token, api, version=version)
-```
-
 ###Product API
 An example call to the Product API:
 
@@ -70,8 +58,8 @@ api = "image"
 response = diffbot.request(url, token, api, version=version)
 ```
 
-###Classifier API
-An example call to the Classifier API:
+###Analyze API
+An example call to the Analyze API:
 
 ```
 diffbot = DiffbotClient()
@@ -82,6 +70,35 @@ api = "analyze"
 response = diffbot.request(url, token, api, version=version)
 ```
 
+###Crawlbot API
+To start a new crawl, specify a crawl name, seed URLs, and the API via which URLs should be processed. An example call to the Crawlbot API:
+
+```
+token = "SOME_TOKEN"
+name = "sampleCrawlName"
+seeds = "http://www.twitter.com/"
+apiUrl = "analyze"
+sampleCrawl = DiffbotCrawl(token,name,seeds,apiUrl)
+```
+
+To check the status of a crawl:
+
+```
+sampleCrawl.status()
+```
+
+To delete or restart a crawl:
+
+```
+sampleCrawl.delete()
+sampleCrawl.restart()
+```
+
+To pass additional arguments to a crawl:
+
+```
+sampleCrawl = DiffbotCrawl(token,name,seeds,apiUrl,maxToCrawl=100,maxToProcess=50,notifyEmail="support@diffbot.com")
+```
 
 ##Testing
 
