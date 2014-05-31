@@ -71,7 +71,7 @@ response = diffbot.request(url, token, api, version=version)
 ```
 
 ###Crawlbot API
-An example call to the Crawlbot API:
+To start a new crawl, specify a crawl name, seed URLs, and the API via which URLs should be processed. An example call to the Crawlbot API:
 
 ```
 token = "SOME_TOKEN"
@@ -99,7 +99,7 @@ To pass additional arguments to a crawl:
 ```
 sampleCrawl = DiffbotCrawl(token,name,seeds,apiUrl,maxToCrawl=100,maxToProcess=50,notifyEmail="support@diffbot.com")
 ```
-
+g
 ##Testing
 
 First install the test requirements with the following command:
