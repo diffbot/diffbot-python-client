@@ -73,7 +73,7 @@ token = API_TOKEN
 seeds = "http://support.diffbot.com"
 api = "article"
 name = "testCrawl"
-diffbot = DiffbotCrawl(token,name,seeds,api)
+diffbot = DiffbotCrawl(token, name, seeds=seeds, api=api)
 time.sleep(5)
 status = diffbot.status()
 print "\nPrinting status:\n"

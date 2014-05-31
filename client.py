@@ -32,7 +32,7 @@ class DiffbotClient(object):
 
 class DiffbotJob(DiffbotClient):
     """
-    Various calls for managing a Diffbot Crawlbot or Bulk API job.
+    Various calls for managing a Crawlbot or Bulk API job.
     """
 
     def request(self,params):
@@ -51,6 +51,12 @@ class DiffbotJob(DiffbotClient):
         response = self.request(self.params)
         return response
 
+    def update(self,**kwargs):
+        temp_params = self.params
+        temp_params.update(kwargs)
+        response = self.request(self.params)
+        return response
+
     def delete(self):
         temp_params = self.params
         temp_params['delete'] = 1
@@ -63,19 +69,36 @@ class DiffbotJob(DiffbotClient):
         response = self.request(temp_params)
         return response
 
+    def download(self,data_format="json"):
+        """
+        downloads the JSON output of a crawl or bulk job
+        """
+
+        download_url = '{}/v3/{}/download/{}-{}_data.{}'.format(
+            self.base_url,self.jobType,self.params['token'],self.params['name'],data_format
+            )
+        download = requests.get(download_url)
+        download.raise_for_status()
+        if data_format == "csv":
+            return download.content
+        else:
+            return download.json()
+
 class DiffbotCrawl(DiffbotJob):
     """
-    Initializes a new Diffbot crawl. Pass additional arguments as necessary.
+    Initializes a Diffbot crawl. Pass additional arguments as necessary.
     """
 
-    def __init__(self,token,name,seeds,api,apiVersion=3,**kwargs):
+    def __init__(self,token,name,seeds=None,api=None,apiVersion=3,**kwargs):
         self.params = {
             "token": token,
             "name": name,
         }
         startParams = dict(self.params)
-        startParams['seeds'] = seeds
-        startParams['apiUrl'] = self.compose_url(api,apiVersion)
+        if seeds:
+            startParams['seeds'] = seeds
+        if api:
+            startParams['apiUrl'] = self.compose_url(api,apiVersion)
         startParams.update(kwargs)
         self.jobType = "crawl"
         self.start(startParams)

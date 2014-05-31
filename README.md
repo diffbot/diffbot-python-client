@@ -77,9 +77,11 @@ To start a new crawl, specify a crawl name, seed URLs, and the API via which URL
 token = "SOME_TOKEN"
 name = "sampleCrawlName"
 seeds = "http://www.twitter.com/"
-apiUrl = "analyze"
-sampleCrawl = DiffbotCrawl(token,name,seeds,apiUrl)
+api = "analyze"
+sampleCrawl = DiffbotCrawl(token,name,seeds=seeds,api=api)
 ```
+
+Omit "seeds" and "api" to load an existing crawl, or create a crawl as a placeholder.
 
 To check the status of a crawl:
 
@@ -87,11 +89,26 @@ To check the status of a crawl:
 sampleCrawl.status()
 ```
 
+To update a crawl:
+
+```
+maxToCrawl = 100
+upp = "diffbot"
+sampleCrawl.update(maxToCrawl=maxToCrawl,urlProcessPattern=upp)
+```
+
 To delete or restart a crawl:
 
 ```
 sampleCrawl.delete()
 sampleCrawl.restart()
+```
+
+To download crawl data:
+
+```
+sampleCrawl.download() # returns JSON by default
+sampleCrawl.download(data_format="csv")
 ```
 
 To pass additional arguments to a crawl:
