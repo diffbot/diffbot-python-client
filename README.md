@@ -1,7 +1,7 @@
-#Python Diffbot API Client
+# Python Diffbot API Client
 
 
-##Preface
+## Preface
 Identify and extract the important parts of any web page in Python!  This client currently supports calls to Diffbot's Automatic APIs and Crawlbot.
 
 
@@ -10,7 +10,7 @@ To install activate a new virtual environment and run the following command:
 
     $ pip install -r requirements.txt
 
-##Configuration
+## Configuration
 
 To run the example, you must first configure a working API token in config.py:
 
@@ -20,9 +20,9 @@ Then replace the string "SOME_TOKEN" with your API token.  Finally, to run the e
 
     $ python example.py
 
-##Usage
+## Usage
 
-###Article API
+### Article API
 An example call to the Article API:
 
 ```
@@ -34,7 +34,7 @@ api = "article"
 response = diffbot.request(url, token, api, version=2)
 ```
 
-###Product API
+### Product API
 An example call to the Product API:
 
 ```
@@ -46,7 +46,7 @@ api = "product"
 response = diffbot.request(url, token, api, version=version)
 ```
 
-###Image API
+### Image API
 An example call to the Image API:
 
 ```
@@ -58,7 +58,7 @@ api = "image"
 response = diffbot.request(url, token, api, version=version)
 ```
 
-###Analyze API
+### Analyze API
 An example call to the Analyze API:
 
 ```
@@ -70,7 +70,7 @@ api = "analyze"
 response = diffbot.request(url, token, api, version=version)
 ```
 
-###Crawlbot API
+### Crawlbot API
 To start a new crawl, specify a crawl name, seed URLs, and the API via which URLs should be processed. An example call to the Crawlbot API:
 
 ```
@@ -117,7 +117,7 @@ To pass additional arguments to a crawl:
 sampleCrawl = DiffbotCrawl(token,name,seeds,apiUrl,maxToCrawl=100,maxToProcess=50,notifyEmail="support@diffbot.com")
 ```
 
-##Testing
+## Testing
 
 First install the test requirements with the following command:
 
