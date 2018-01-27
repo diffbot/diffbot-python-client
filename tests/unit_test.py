@@ -1,17 +1,17 @@
 import os
-import urlparse
+from urllib.parse import urlparse
 import unittest
 import requests
-from mock import patch
+from unittest.mock import patch
 
 from client import DiffbotClient
 
 
 def fake_get(url, params):
-    path = urlparse.urlparse(url).path
+    path = urlparse(url).path
     path_tuple = os.path.split(path)
     api = path_tuple[len(path_tuple) - 1]
-    resource_file = os.path.normpath('tests/test_fixtures/%s.json' % api)
+    resource_file = os.path.normpath('test_fixtures/%s.json' % api)
     with open(resource_file, mode='rb') as file:
         json = file.read()
     r = requests.Response()
