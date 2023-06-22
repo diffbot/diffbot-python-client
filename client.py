@@ -41,7 +41,7 @@ class DiffbotJob(DiffbotClient):
         try:
             return response.json()
         except:
-            print response.text
+            print(response.text)
 
     def start(self,params):
         response = self.request(params)
